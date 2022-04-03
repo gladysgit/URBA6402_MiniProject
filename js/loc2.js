@@ -12,7 +12,7 @@ const map = new mapboxgl.Map({
 map.on('load', () => {
     map.addSource('trails', {
         type: 'geojson',
-        data: 'assets/data/trail.json',
+        data: 'https://gladysgit.github.io/URBA6402_MiniProject/assets/data/trail.json',
     });
 
     map.addLayer({
@@ -25,7 +25,7 @@ map.on('load', () => {
         'paint': {
             'line-color': '#888',
             'line-width': 8},
-        'filter': ['<=', 'rank_like', '0'],
+        'filter': ['<=', 'rank_like', 0],
         });
 
     // map.setFilter('highlight', ['<=', 'rank', '0']);
