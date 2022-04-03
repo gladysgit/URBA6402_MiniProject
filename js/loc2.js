@@ -2,7 +2,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZ2xhZHlzbHN3IiwiYSI6ImNraGN4Z2h6eTAxMWEycnBhY
 
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/gladyslsw/cl1j13yws000314n6rt4x7ccl',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    // style: 'mapbox://styles/gladyslsw/cl1j13yws000314n6rt4x7ccl',
     center: [114.139, 22.370], // starting position [lng, lat]
     zoom: 10.2, // starting zoom
     pitch: 0,
@@ -117,10 +118,10 @@ map.on('load', () => {
         activeChapterName = chapterName;
 
         if (chapterName === 'trail') {
-            map.setFilter('highlight', ['<=', 'rank', '10']);
+            map.setFilter('highlight', ['<=', 'rank_like', 10]);
         }
         else {
-            map.setFilter('highlight', ['<=', 'rank', '0']);
+            map.setFilter('highlight', ['<=', 'rank_like', 0]);
         }
     }
 
