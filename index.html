@@ -1,247 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Camping in Hong Kong</title>
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <!-- Mapbox -->
-        <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
-        <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
-        <!-- chart.js -->
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>#hkhiking</title>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
-        <style>
-            #map { height: 450px; }
-            #static {
-                background-image: url('https://api.mapbox.com/styles/v1/gladyslsw/cl14u9smb003f14rk7g9mw0jg/static/113.979,22.242,14/816x450@2x?access_token=pk.eyJ1IjoiZ2xhZHlzbHN3IiwiYSI6ImNraGN4Z2h6eTAxMWEycnBhYWc2ZTBibjgifQ.vurF3g-wliG-lYESX4NH1w');
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-position: center center;
-                height: 450px;
-            }
-        </style>
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">Camping in HK</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
-                    </ul>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <!-- <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400" rel="stylesheet" /> -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <!-- Mapbox -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+
+    <!-- chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- d3 cloud -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script> -->
+
+    <style>
+    #map { height: 450px; }
+    #static {
+        background-image: url('https://api.mapbox.com/styles/v1/gladyslsw/cl14u9smb003f14rk7g9mw0jg/static/113.979,22.242,14/816x450@2x?access_token=pk.eyJ1IjoiZ2xhZHlzbHN3IiwiYSI6ImNraGN4Z2h6eTAxMWEycnBhYWc2ZTBibjgifQ.vurF3g-wliG-lYESX4NH1w');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        height: 450px;
+    }
+    #loc { width:100%; height:80vh; }
+    </style>
+</head>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#page-top">#hkhiking</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#problem">Problem</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#data">Data</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#why">Why?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#where">Where?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#more">More?</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="d-flex justify-content-center">
+                <div class="text-center">
+                    <h1 class="mx-auto my-0 text-uppercase">#hkhiking</h1>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">Change of Hiking in Hong Kong over Time and Space</h2>
+                    <a class="btn btn-primary" href="#problem">Let's Started</a>
                 </div>
             </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
-                <div class="d-flex justify-content-center">
-                    <div class="text-center">
-                        <h1 class="mx-auto my-0 text-uppercase">Camping in HK   </h1>
-                        <h2 class="text-white-50 mx-auto mt-2 mb-5">How to quantify the trend of camping in Hong Kong?</h2>
-                        <a class="btn btn-primary" href="#about">Get Started</a>
+        </div>
+    </header>
+
+    <!-- Problem -->
+    <section class="problem-section" id="problem">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="text-black mx-auto mb-4"><b>the Problem</b></h1>
+                    <h5 class="text-black-50 mx-auto mb-3">Not just a means of communication, social media nowadays is a combination of information ranging <span class="highlight">from textual, temporal, graphical, spatial to social reactions</span>.</h5>
+                    <h5 class="text-black-50 mx-auto mb-3">In Hong Kong, Instagram ranks third among all social media apps. Its popularity among the younger generation and unique hashtag culture make it <span class="highlight">an excellent source to provide insight on the changes over time and space</span>, which can facilitate the context analysis for urban planning.</h5>
+                    <h5 class="text-black-50 mx-auto mb-5"><span class="highlight">Why go hiking? Where to go hiking?</span> Let's find the answers from the data.</h5>
+                </div>
+            </div>
+            <img class="img-fluid" src="assets/img/iphone.png" />
+        </div>
+    </section>
+
+    <!-- Data -->
+    <section class="data-section bg-light" id="data">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-0 mb-5 mb-lg-5 align-items-center">
+                <div class="col-xl-8 col-lg-7">
+                    <img class="img-fluid mb-3 mb-lg-0 shadow rounded" src="assets/img/hashtag.png" />
+                    <!-- <div id="map"></div> -->
+                    <!-- <div id="static"></div> -->
+                    <!-- <canvas id="myChart"></canvas> -->
+                    <!-- <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTJ_3GfB7enQAg8FDQD782Ezr2g3m5tiYEcNJe_m71h9LXNGSjZOZfXt400xhAM_nuyGAzxdIV8mSrO/pubchart?oid=531334481&amp;format=interactive" height=450px width=816px></iframe> -->
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="featured-text text-center text-lg-left">
+                        <h4>#hkhiking</h4>
+                        <p class="text-black-50 mb-0">Posts collected from web scraping</p>
+                        <p class="text-black-50 mb-0">7k Posts, 18k Likes, 0.1k Comments<br>in Mar 2022</p>
                     </div>
                 </div>
             </div>
-        </header>
-        <!-- About-->
-        <section class="about-section text-center" id="about">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2 class="text-white mb-4">Built with Bootstrap 5</h2>
-                        <p class="text-white-50">
-                            Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
-                            <a href="https://startbootstrap.com/theme/grayscale/">the preview page.</a>
-                            The theme is open source, and you can use it for any purpose, personal or commercial.
-                        </p>
+        </div>
+    </section>
+
+    <!-- Why -->
+    <section class="why-section" id="why">
+        <div class="container mt-5 px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="text-dark-50 text-center mx-auto mb-4"><b>Why go hiking?</b></h1>
+                </div>
+            </div>
+            <div class="row gx-0 align-items-center">
+                <div class="col-xl-4 col-lg-5">
+                    <div class="featured-text text-center text-lg-left">
+                        <h4>Social Network Analysis (SNA)</h4>
+                        <p class="text-black-50 mb-0">Construct a social media network graph</p>
+                        <p class="mb-5 text-black-50">Detect influential nodes by graph algorithm</p>
+                        <img class="img-fluid rounded shadow" src="assets/img/schema.png" />
                     </div>
                 </div>
-                <img class="img-fluid" src="assets/img/ipad.png" alt="..." />
+                <div class="col-xl-8 col-lg-7">
+                    <a href="#why2"><img class="img-fluid mb-3 mb-lg-3" src="assets/img/network.png" /></a>
+                </div>
             </div>
-        </section>
-        <!-- Projects-->
-        <section class="projects-section bg-light" id="projects">
-            <div class="container px-4 px-lg-5">
-                <!-- Featured Project Row-->
-                <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                    <div class="col-xl-8 col-lg-7">
-                        <!-- <img class="img-fluid mb-3 mb-lg-0" src="assets/img/bg-masthead.jpeg" alt="..." /> -->
-                        <div id="map"></div>
-                        <!-- <div id="static"></div> -->
-                    </div>
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="featured-text text-center text-lg-left">
-                            <h4>Pui O Campsite</h4>
-                            <p class="text-black-50 mb-0">I am showing you Pui O campsite!</p>
+
+            <!-- Project One Row-->
+            <div id="why2" class="row gx-0 justify-content-center">
+                <div class="col-lg-4 mb-5 mb-lg-5">
+                    <img class="img-fluid" src="assets/img/portrait.png" />
+                </div>
+                <div class="col-lg-5 mb-5 mb-lg-5">
+                    <div class="text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-left">
+                                <h4 class="text-dark"><b>Top Influential Hashtags</b></h4>
+                                <h5 class="mb-0 text-black-50"><b>Sports</b> - #hike, #hikingadventures</h5>
+                                <h5 class="mb-0 text-black-50"><b>Leisure</b> - #discoverhongkong, #香港好去處</h5>
+                                <h5 class="mb-5 text-black-50"><b>Environment</b> - #山野無痕, #自己垃圾自己帶走</h5>
+                                <h4 class="text-dark"><b>Top Emojis</b></h4>
+                                <h5 class="mb-0"><span class="text-black-50"><b>Location - </b></span>📍 ⛰ 🇭🇰</h5>
+                                <h5 class="mb-0"><span class="text-black-50"><b>Photo - </b></span>📸 📷</h5>
+                                <h5 class="mb-0"><span class="text-black-50"><b>Emotion - </b></span>😂 🤣 ❤ 💕</h5>
+                                <h5 class="mb-5"><span class="text-black-50"><b>Weather - </b></span>☀️</h5>
+                                <h5 class="mb-5"><span class="text-black-50">The citizens pursue healthy lifestyle by hiking and exploring different sceneries </span>⛰<span class="text-black-50"> in Hong Kong with happiness under nice weather </span>☀️<span class="text-black-50">.</span></h5>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Featured Project Row-->
-                <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="featured-text text-center text-lg-left">
-                            <h4>Pui O Campsite</h4>
-                            <p class="text-black-50 mb-0">I am showing you Pui O campsite!</p>
-                        </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="where-section bg-light" id="where">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="text-dark-50 text-center mx-auto mb-4"><b>Where to go hiking?</b></h1>
+                </div>
+            </div>
+
+            <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+                <div class="col-xl-4 col-lg-5">
+                    <div class="featured-text text-center text-lg-left">
+                        <h4 class="text-dark"><b>GIS Analysis</b></h4>
+                        <h5 class="text-black-50 mb-0">1. Spatial filtering</h5>
+                        <h5 class="text-black-50 mb-0">2. Spatial clustering</h5>
+                        <h5 class="text-black-50 mb-2">3. Ranking by social reactions</h5>
                     </div>
-                    <div class="col-xl-8 col-lg-7">
-                        <!-- <img class="img-fluid mb-3 mb-lg-0" src="assets/img/bg-masthead.jpeg" alt="..." /> -->
+                </div>
+                <div class="col-xl-8 col-lg-7">
+                    <img class="img-fluid mb-3 mb-lg-0 rounded shadow" src="assets/img/cleansing.png" />
+                    <!-- <div id="map"></div> -->
+                    <!-- <div id="static"></div> -->
+                    <!-- <canvas id="myChart"></canvas> -->
+                    <!-- <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTJ_3GfB7enQAg8FDQD782Ezr2g3m5tiYEcNJe_m71h9LXNGSjZOZfXt400xhAM_nuyGAzxdIV8mSrO/pubchart?oid=531334481&amp;format=interactive" style="width:100%; height:450px"></iframe> -->
+                </div>
+            </div>
+
+            <div class="row gx-4 justify-content-center">
+                <div class="col-lg-4 text-center">
+                    <h4 class="text-dark"><span class="highlight">1. Spatial filtering</span></h4>
+                    <h5 class="text-black-50">Consider the locations within country park and along hiking trails</h5>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <h4 class="text-dark"><span class="highlight">2. Spatial clustering</span></h4>
+                    <h5 class="text-black-50">Aggregate the locations nearby, <br>i.e. withit 10m</h5>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <h4 class="text-dark"><span class="highlight">3. Ranking by social reactions</span></h4>
+                    <h5 class="text-black-50">Aggregate the total comments and likes to rank the locations</h5>
+                </div>
+            </div>
+
+            <div class="row gx-4 justify-content-center">
+                <div class="col-lg-4 text-center">
+                    <img class="img-fluid rounded shadow" src="assets/img/data_1.png" />
+                </div>
+                <div class="col-lg-4 text-center">
+                    <img class="img-fluid rounded shadow" src="assets/img/data_2.png" />
+                </div>
+                <div class="col-lg-4 text-center">
+                    <img class="img-fluid rounded shadow" src="assets/img/data_3.png" />
+                </div>
+            </div>
+        </div>
+
+        <div id="more" class="container-fluid px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div id="where2" class="row gx-0 mb-5 mb-lg-5 align-items-center">
+                    <div class="col-xl-12 col-lg-12 mt-lg-5 mb-3">
                         <!-- <div id="map"></div> -->
-                        <!-- <div id="static"></div> -->
-                        <canvas id="myChart"></canvas>
-                    </div>
-                </div>
-                <!-- Project One Row-->
-                <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-01.jpg" alt="..." /></div>
-                    <div class="col-lg-6">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <h4 class="text-white">Misty</h4>
-                                    <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description.</p>
-                                    <hr class="d-none d-lg-block mb-0 ms-0" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project Two Row-->
-                <div class="row gx-0 justify-content-center">
-                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-02.jpg" alt="..." /></div>
-                    <div class="col-lg-6 order-lg-first">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-right">
-                                    <h4 class="text-white">Mountains</h4>
-                                    <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well, try this theme on a small screen!</p>
-                                    <hr class="d-none d-lg-block mb-0 me-0" />
-                                </div>
-                            </div>
+                        <div class="iframe">
+                            <!-- <iframe id="loc" height=800 class="w-100 rounded shadow" allowfullscreen="" mozallowfullscreen="true" webkitallowfullscreen="true" src="loc.html" loading="lazy"></iframe> -->
+                            <!-- <iframe id="loc" class="rounded shadow" allowfullscreen="" mozallowfullscreen="true" webkitallowfullscreen="true" src="loc.html" loading="lazy"></iframe> -->
+                            <iframe id="loc" name="loc" class="w-100 block rounded shadow" allowfullscreen="" mozallowfullscreen="true" webkitallowfullscreen="true" src="loc2.html" loading="lazy"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Signup-->
-        <section class="signup-section" id="signup">
-        </section>
-        <!-- Contact-->
-        <section class="contact-section bg-black">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Address</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">4923 Market Street, Orlando FL</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-envelope text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Email</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50"><a href="#!">hello@yourdomain.com</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Phone</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">+1 (555) 902-8832</div>
-                            </div>
+        </div>
+    </section>
+
+    <!-- Signup-->
+    <section class="signup-section" id="signup">
+    </section>
+
+    <!-- Contact-->
+    <section class="contact-section bg-black">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Address</h4>
+                            <hr class="my-4 mx-auto" />
+                            <div class="small text-black-50">4923 Market Street, Orlando FL</div>
                         </div>
                     </div>
                 </div>
-                <div class="social d-flex justify-content-center">
-                    <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-envelope text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Email</h4>
+                            <hr class="my-4 mx-auto" />
+                            <div class="small text-black-50"><a href="#!">hello@yourdomain.com</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Phone</h4>
+                            <hr class="my-4 mx-auto" />
+                            <div class="small text-black-50">+1 (555) 902-8832</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-        <!-- Footer-->
-        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Gladys Lai 2022</div></footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <script>
-        	mapboxgl.accessToken = 'pk.eyJ1IjoiZ2xhZHlzbHN3IiwiYSI6ImNraGN4Z2h6eTAxMWEycnBhYWc2ZTBibjgifQ.vurF3g-wliG-lYESX4NH1w';
-            const map = new mapboxgl.Map({
-                container: 'map', // container ID
-                // style: 'mapbox://styles/mapbox/streets-v11', // style URL
-                style: 'mapbox://styles/gladyslsw/cl14u9smb003f14rk7g9mw0jg',
-                center: [113.979, 22.242], // starting position [lng, lat]
-                zoom: 13, // starting zoom
-                pitch: 30
-            });
+        </div>
+    </section>
 
-            function rotateCamera(timestamp) {
-                // clamp the rotation between 0 -360 degrees
-                // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
-                map.rotateTo((timestamp / 100) % 360, { duration: 0 });
-                // Request the next frame of the animation.
-                requestAnimationFrame(rotateCamera);
-            }
+    <!-- Footer-->
+    <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Gladys Lai 2022</div></footer>
 
-            map.on('load', () => {
-                // Start the animation.
-                rotateCamera(0);
-            })
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-            const labels = [
-              'January',
-              'February',
-              'March',
-              'April',
-              'May',
-              'June',
-            ];
-
-            const data = {
-              labels: labels,
-              datasets: [{
-                label: 'My First dataset',
-                backgroundColor: 'rgb(100, 161, 157)',
-                borderColor: 'rgb(100, 161, 157)',
-                data: [0, 10, 5, 2, 20, 30, 45],
-              }]
-            };
-
-            const config = {
-              type: 'line',
-              data: data,
-              options: {}
-            };
-
-          const myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-          );
-        </script>
-    </body>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
 </html>
