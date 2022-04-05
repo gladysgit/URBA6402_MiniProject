@@ -24,7 +24,7 @@ map.on('load', () => {
             'line-join': 'round',
             'line-cap': 'round'},
         'paint': {
-            'line-color': '#888',
+            'line-color': '#C25462',
             'line-width': 8},
         'filter': ['<=', 'rank_like', 0],
         });
@@ -118,7 +118,7 @@ map.on('load', () => {
         activeChapterName = chapterName;
 
         if (chapterName === 'trail') {
-            map.setFilter('highlight', ['<=', 'rank_like', 10]);
+            map.setFilter('highlight', ['<=', 'rank_like', 3]);
         }
         else {
             map.setFilter('highlight', ['<=', 'rank_like', 0]);
