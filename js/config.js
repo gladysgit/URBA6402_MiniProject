@@ -1,3 +1,21 @@
+// Number of slides that will drive (more = smoother)
+// If this doesn't match the number of slides named 'drive-slide' in config below you will not complete the full journey
+var driveSlides = 7;
+
+// Number of points on drive route (more = higher quality, but slower to process)
+var driveSmoothness = 200;
+
+// Value used to drive
+var driveTime = driveSlides * driveSmoothness;
+
+// Do you want to follow the point? True = follow
+var followPoint = false;
+
+// ...If so, what zoom, pitch, and bearing should be used to follow?
+var followZoomLevel = 14;
+var followBearing = 29;
+var followPitch = 0;
+
 var config = {
     style: 'mapbox://styles/gladyslsw/cl1j13yws000314n6rt4x7ccl',
     accessToken: 'pk.eyJ1IjoiZ2xhZHlzbHN3IiwiYSI6ImNraGN4Z2h6eTAxMWEycnBhYWc2ZTBibjgifQ.vurF3g-wliG-lYESX4NH1w',
@@ -102,6 +120,35 @@ var config = {
             },
             onChapterEnter: [],
             onChapterExit: []
-        }
+        },
+        {
+            id: 'drive-slide-0',
+            title: 'Second Title',
+            image: './path/to/image/source.png',
+            description: 'Copy these sections to add to your story.',
+            location: {
+                // location information is from the drive route
+            },
+            onChapterEnter: [],
+            onChapterExit: []
+        },
+        {
+            id: 'drive-slide-1',
+            title: 'Second Title',
+            image: './path/to/image/source.png',
+            description: 'Copy these sections to add to your story.',
+            location: {},
+            onChapterEnter: [],
+            onChapterExit: []
+        },
+        {
+            id: 'drive-slide-2',
+            title: 'Second Title',
+            image: './path/to/image/source.png',
+            description: 'Copy these sections to add to your story.',
+            location: {},
+            onChapterEnter: [],
+            onChapterExit: []
+        },
     ]
 };

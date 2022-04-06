@@ -148,6 +148,21 @@ if (config.showMarkers) {
 // instantiate the scrollama
 var scroller = scrollama();
 
+function handleStepProgress(response) {
+    let stepProgress;
+
+    if (response.element.id.slice(0,5) === 'drive') {
+        let driveSlideNum = parseInt(response.element.id.slice(-1));
+        if (driveSlideNum === 0) {
+            map.setLayoutProperty('animatedLine', 'visibility', 'visible');
+            stepProgress = Math.round(response.progress*driveSmoothness);
+        } else {
+            stepProgress = Math.round(response.progress*driveSmoothness+driveSmoothness*driveSlideNum);
+        }
+        changeCenter(stepProgress);
+    }
+}
+
 map.on("load", function() {
     if (config.use3dTerrain) {
         map.addSource('mapbox-dem', {
@@ -170,6 +185,44 @@ map.on("load", function() {
             }
         });
     };
+
+    map.addSource('lineSource', {
+        "type": "geojson",
+        "data": geojsonPoint
+    });
+
+    map.addSource('pointSource', {
+        "type": "geojson",
+        "data": geojsonPoint
+    });
+
+    map.addLayer({
+      "id": "animatedLine",
+      "type": "line",
+      "source": "lineSource",
+      'paint': {
+            'line-opacity': 1,
+            'line-color': '#333',
+            'line-width': 3.5
+       },
+       'layout': {
+           'visibility': 'none'
+       }
+    });
+
+    map.addLayer({
+      "id": "animatedPoint",
+      "type": "circle",
+      "source": "pointSource",
+      'paint': {
+            'circle-radius': 5,
+            'circle-opacity': 1,
+            'circle-color': '#333'
+      },
+      'layout': {
+           // 'visibility': 'none'
+       }
+    });
 
     // setup the instance, pass callback functions
     scroller
@@ -209,8 +262,26 @@ map.on("load", function() {
         if (chapter.onChapterExit.length > 0) {
             chapter.onChapterExit.forEach(setLayerOpacity);
         }
-    });
+    })
+    .onStepProgress(handleStepProgress);
+
+    createLine();
 });
 
 // setup resize event
 window.addEventListener('resize', scroller.resize);
+
+$(document).ready(function (){
+    $.ajax({
+      // url:"./data/highwaydrive.geojson",
+      url: "https://gladysgit.github.io/URBA6402_MiniProject/data/toptrail.geojson",
+      dataType: "json",
+      success: function (data) {
+        console.log('data', data.features[0]);
+        routeData = data;
+      },
+      error: function () {
+        console.log('error loading data');
+      }
+    });
+});
