@@ -1,6 +1,6 @@
 // Number of slides that will drive (more = smoother)
 // If this doesn't match the number of slides named 'drive-slide' in config below you will not complete the full journey
-var driveSlides = 3;
+var driveSlides = 2;
 
 // Number of points on drive route (more = higher quality, but slower to process)
 var driveSmoothness = 300;
@@ -118,7 +118,7 @@ var config = {
             alignment: 'right',
             title: 'Top Hiking Trail',
             image: '',
-            description: 'Maclenose Trail Section 8 - Lead Mine Pass to Route Twisk<br>麥理浩徑第8段鉛鑛坳至荃錦公路',
+            description: 'Maclehose Trail Section 8 - Lead Mine Pass to Route Twisk<br>麥理浩徑第8段鉛鑛坳至荃錦公路',
             mapAnimation: 'flyTo',
             location: {
                 center: [114.12911, 22.41206],
@@ -132,9 +132,8 @@ var config = {
         {
             id: 'drive-slide-0',
             alignment: 'left',
-            title: 'Second Title',
-            image: './path/to/image/source.png',
-            description: 'Copy these sections to add to your story.',
+            title: '',
+            description: 'Distance: 9.7km<br>Time: 4hr',
             location: {
                 // location information is from the drive route
             },
@@ -144,9 +143,9 @@ var config = {
         {
             id: 'drive-slide-1',
             alignment: 'left',
-            title: 'Second Title',
-            image: './path/to/image/source.png',
-            description: 'Copy these sections to add to your story.',
+            title: '',
+            image: 'assets/img/loc_3.png',
+            description: 'Get the most pleasing view from the highest point of Hong Kong with an excellent hike through a beautiful tropical landscape, on the ridge of Tai Mo Shan',
             location: {},
             onChapterEnter: [],
             onChapterExit: []
@@ -154,9 +153,8 @@ var config = {
         {
             id: 'drive-slide-2',
             alignment: 'left',
-            title: 'Second Title',
-            image: './path/to/image/source.png',
-            description: 'Copy these sections to add to your story.',
+            title: 'Difficulty',
+            description: 'Difficulty: 3/5<br>The beginning and the end can be a bit rough because of the steps that seem endless. Enjoy hiking!',
             location: {},
             onChapterEnter: [],
             onChapterExit: []
