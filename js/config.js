@@ -35,6 +35,7 @@ var config = {
                 pitch: 75,
                 bearing: 142.1,
             },
+            rotateAnimation: true,
             onChapterEnter: [],
             onChapterExit: []
         },
