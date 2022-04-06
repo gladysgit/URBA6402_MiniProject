@@ -7,7 +7,7 @@ var geojsonPoint = {
         "geometry": {
             "type": "LineString",
             "coordinates": [
-        
+
             ]
         }
     }]
@@ -17,7 +17,7 @@ function createLine() {
 
     // get the coordinates of the line you want to highlight
     let extentArray = routeData.features[0].geometry.coordinates;
-    
+
     // create a turf linestring based on the line coordinates
     const line = turf.lineString(extentArray);
 
@@ -57,7 +57,7 @@ function createLine() {
             map.getSource('pointSource').setData(initPoint);
         }
 
-        // once 'i' equals the number of points then we're done building our line 
+        // once 'i' equals the number of points then we're done building our line
         if (i == rects) {
             map.getSource('lineSource').setData(geojsonPoint);
         }

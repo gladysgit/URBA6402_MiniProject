@@ -37,6 +37,7 @@ var story = document.getElementById('story');
 var features = document.createElement('div');
 features.setAttribute('id', 'features');
 
+
 var header = document.createElement('div');
 
 if (config.title) {
@@ -154,12 +155,41 @@ function handleStepProgress(response) {
     if (response.element.id.slice(0,5) === 'drive') {
         let driveSlideNum = parseInt(response.element.id.slice(-1));
         if (driveSlideNum === 0) {
+            let w = window.innerWidth;
+            let initBounds = routeData.features[0].geometry.coordinates;
+
+            if (followPoint === false) {
+                var bounds = initBounds.reduce(function(bounds, coord) {
+                    return bounds.extend(coord);
+                }, new mapboxgl.LngLatBounds(initBounds[0], initBounds[0]));
+
+                if (w >= 500) {
+                    map.fitBounds(bounds, {
+                        padding: {top: 150, bottom: 150, right: 150, left: 150},
+                        duration: 1000,
+                    });
+                } else {
+                    map.fitBounds(bounds, {
+                        padding: 20,
+                        duration: 1000,
+                    });
+                }
+            } else {
+                map.setZoom(followZoomLevel);
+                map.setBearing(followBearing);
+                map.setPitch(followPitch);
+            }
+
             map.setLayoutProperty('animatedLine', 'visibility', 'visible');
+            map.setLayoutProperty('animatedPoint', 'visibility', 'visible');
             stepProgress = Math.round(response.progress*driveSmoothness);
         } else {
             stepProgress = Math.round(response.progress*driveSmoothness+driveSmoothness*driveSlideNum);
         }
         changeCenter(stepProgress);
+    } else {
+        map.setLayoutProperty('animatedLine', 'visibility', 'none');
+        map.setLayoutProperty('animatedPoint', 'visibility', 'none');
     }
 }
 
@@ -220,7 +250,7 @@ map.on("load", function() {
             'circle-color': '#333'
       },
       'layout': {
-           // 'visibility': 'none'
+           'visibility': 'none'
        }
     });
 
@@ -234,7 +264,9 @@ map.on("load", function() {
     .onStepEnter(response => {
         var chapter = config.chapters.find(chap => chap.id === response.element.id);
         response.element.classList.add('active');
-        map[chapter.mapAnimation || 'flyTo'](chapter.location);
+        if (chapter.mapAnimation) {
+            map[chapter.mapAnimation || 'flyTo'](chapter.location);
+        }
 
         if (config.showMarkers) {
             marker.setLngLat(chapter.location.center);
@@ -248,8 +280,8 @@ map.on("load", function() {
         if (chapter.rotateAnimation) {
             map.once('moveend', function() {
                 const rotateNumber = map.getBearing();
-                map.rotateTo(rotateNumber + 90, {
-                    duration: 24000, easing: function (t) {
+                map.rotateTo(rotateNumber + 180, {
+                    duration: 20000, easing: function (t) {
                         return t;
                     }
                 });
@@ -274,7 +306,7 @@ window.addEventListener('resize', scroller.resize);
 $(document).ready(function (){
     $.ajax({
       // url:"./data/highwaydrive.geojson",
-      url: "https://gladysgit.github.io/URBA6402_MiniProject/data/toptrail.geojson",
+      url: "https://gladysgit.github.io/URBA6402_MiniProject/data/toptrail.json",
       dataType: "json",
       success: function (data) {
         console.log('data', data.features[0]);
