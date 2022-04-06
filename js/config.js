@@ -1,9 +1,9 @@
 // Number of slides that will drive (more = smoother)
 // If this doesn't match the number of slides named 'drive-slide' in config below you will not complete the full journey
-var driveSlides = 2;
+var driveSlides = 3;
 
 // Number of points on drive route (more = higher quality, but slower to process)
-var driveSmoothness = 300;
+var driveSmoothness = 500;
 
 // Value used to drive
 var driveTime = driveSlides * driveSmoothness;
@@ -156,6 +156,22 @@ var config = {
             title: 'Difficulty',
             description: 'Difficulty: 3/5<br>The beginning and the end can be a bit rough because of the steps that seem endless.',
             location: {},
+            onChapterEnter: [],
+            onChapterExit: []
+        },
+        {
+            id: 'drive-3',
+            alignment: 'center',
+            title: 'Enjoy!',
+            image: '',
+            description: 'Will you try to go hiking afterwards?',
+            mapAnimation: 'flyTo',
+            location: {
+                center: [114.12911, 22.41206],
+                zoom: 13,
+                pitch: 50,
+                bearing: 0,
+            },
             onChapterEnter: [],
             onChapterExit: []
         },

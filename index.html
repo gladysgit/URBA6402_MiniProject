@@ -19,14 +19,17 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
 
-    <!-- chart.js -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <!-- Storytelling -->
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
 
-    <!-- d3 cloud -->
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script> -->
+    <!-- Custom -->
+    <link href="css/loc2.css" rel="stylesheet">
 
     <style>
-    #map { height: 450px; }
+    /* #map { height: 450px; }
     #static {
         background-image: url('https://api.mapbox.com/styles/v1/gladyslsw/cl14u9smb003f14rk7g9mw0jg/static/113.979,22.242,14/816x450@2x?access_token=pk.eyJ1IjoiZ2xhZHlzbHN3IiwiYSI6ImNraGN4Z2h6eTAxMWEycnBhYWc2ZTBibjgifQ.vurF3g-wliG-lYESX4NH1w');
         background-repeat: no-repeat;
@@ -34,7 +37,7 @@
         background-position: center center;
         height: 450px;
     }
-    #loc { width:100%; height:80vh; }
+    #loc { width:100%; height:80vh; } */
     </style>
 </head>
 <body id="page-top">
@@ -187,31 +190,29 @@
                 <div class="col-lg-4 text-center">
                     <h4 class="text-dark"><span class="highlight">1. Spatial filtering</span></h4>
                     <h5 class="text-black-50">Consider the locations within country park and along hiking trails</h5>
-                    <img class="img-fluid rounded  mb-3 mb-lg-0" src="assets/img/data_1.png" />
+                    <img class="img-fluid rounded mb-3 mb-lg-4" src="assets/img/data_1.png" />
                 </div>
                 <div class="col-lg-4 text-center">
                     <h4 class="text-dark"><span class="highlight">2. Spatial clustering</span></h4>
                     <h5 class="text-black-50">Aggregate the locations nearby, <br>i.e. within 10m</h5>
-                    <img class="img-fluid rounded mb-3 mb-lg-0" src="assets/img/data_2.png" />
+                    <img class="img-fluid rounded mb-3 mb-lg-4" src="assets/img/data_2.png" />
                 </div>
                 <div class="col-lg-4 text-center">
                     <h4 class="text-dark"><span class="highlight">3. Ranking by social reactions</span></h4>
                     <h5 class="text-black-50">Rank the locations based on total comments and likes</h5>
-                    <img class="img-fluid rounded mb-3 mb-lg-0" src="assets/img/data_3.png" />
+                    <img class="img-fluid rounded mb-3 mb-lg-4" src="assets/img/data_3.png" />
                 </div>
             </div>
         </div>
+    </section>
 
+    <section class="where2-section" id="more">
         <div id="more" class="container-fluid px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div id="where2" class="row gx-0 mb-5 mb-lg-5 align-items-center">
                     <div class="col-xl-12 col-lg-12 mt-lg-5 mb-3">
-                        <!-- <div id="map"></div> -->
-                        <div class="iframe">
-                            <!-- <iframe id="loc" height=800 class="w-100 rounded shadow" allowfullscreen="" mozallowfullscreen="true" webkitallowfullscreen="true" src="loc.html" loading="lazy"></iframe> -->
-                            <!-- <iframe id="loc" class="rounded shadow" allowfullscreen="" mozallowfullscreen="true" webkitallowfullscreen="true" src="loc.html" loading="lazy"></iframe> -->
-                            <iframe id="loc" name="loc" class="w-100 block rounded shadow" allowfullscreen="" mozallowfullscreen="true" webkitallowfullscreen="true" src="loc2.html" loading="lazy"></iframe>
-                        </div>
+                        <div id="map"></div>
+                        <div id="story"></div>
                     </div>
                 </div>
             </div>
@@ -224,18 +225,18 @@
             <div class="row gx-4 gx-lg-5">
                 <div class="col-lg-4 text-center bg-white bg-opacity-75 p-4">
                     <h4 class="text-dark"><span class="highlight">Data Acquisition</span></h4>
-                    <h5 class="text-black">Prepare more Instagram accounts!</h5>
-                    <h5 class="text-black">Tools: Python</h5>
+                    <p class="text-black">Prepare more Instagram accounts!</p>
+                    <p class="text-black">Tools: Python</p>
                 </div>
                 <div class="col-lg-4 text-center bg-white bg-opacity-75 p-4">
                     <h4 class="text-dark"><span class="highlight">Data Analytics</span></h4>
-                    <h5 class="text-black">Data cleansing is always required!</h5>
-                    <h5 class="text-black">Tools: Python, neo4j, ArcGIS</h5>
+                    <p class="text-black">Data cleansing is always required!</p>
+                    <p class="text-black">Tools: Python, neo4j, ArcGIS</p>
                 </div>
                 <div class="col-lg-4 text-center bg-white bg-opacity-75 p-4">
                     <h4 class="text-dark"><span class="highlight">Data Visualization</span></h4>
-                    <h5 class="text-black">Virtual tour on 3D Map</h5>
-                    <h5 class="text-black">Tools: Mapbox, HTML, Javascript, CSS</h5>
+                    <p class="text-black">Virtual tour on 3D Map</p>
+                    <p class="text-black">Tools: Mapbox, HTML, Javascript, CSS</p>
                 </div>
             </div>
         </div>
@@ -249,5 +250,8 @@
 
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/drive.js"></script>
+    <script src="./js/loc2.js"></script>
 </body>
 </html>

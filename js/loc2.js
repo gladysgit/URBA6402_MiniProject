@@ -154,38 +154,16 @@ function handleStepProgress(response) {
 
     if (response.element.id.slice(0,5) === 'drive') {
         let driveSlideNum = parseInt(response.element.id.slice(-1));
+        map.setLayoutProperty('animatedLine', 'visibility', 'visible');
+        map.setLayoutProperty('animatedPoint', 'visibility', 'visible');
+
         if (driveSlideNum === 0) {
-            let w = window.innerWidth;
-            let initBounds = routeData.features[0].geometry.coordinates;
-
-            if (followPoint === false) {
-                var bounds = initBounds.reduce(function(bounds, coord) {
-                    return bounds.extend(coord);
-                }, new mapboxgl.LngLatBounds(initBounds[0], initBounds[0]));
-
-                if (w >= 500) {
-                    map.fitBounds(bounds, {
-                        padding: {top: 150, bottom: 150, right: 150, left: 150},
-                        duration: 1000,
-                    });
-                } else {
-                    map.fitBounds(bounds, {
-                        padding: 20,
-                        duration: 1000,
-                    });
-                }
-            } else {
-                map.setZoom(followZoomLevel);
-                map.setBearing(followBearing);
-                map.setPitch(followPitch);
-            }
-
-            map.setLayoutProperty('animatedLine', 'visibility', 'visible');
-            map.setLayoutProperty('animatedPoint', 'visibility', 'visible');
             stepProgress = Math.round(response.progress*driveSmoothness);
         } else {
             stepProgress = Math.round(response.progress*driveSmoothness+driveSmoothness*driveSlideNum);
         }
+        console.log(response)
+        console.log(stepProgress)
         changeCenter(stepProgress);
     } else {
         map.setLayoutProperty('animatedLine', 'visibility', 'none');
