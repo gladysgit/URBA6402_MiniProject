@@ -14,7 +14,7 @@ var followPoint = false;
 // ...If so, what zoom, pitch, and bearing should be used to follow?
 var followZoomLevel = 10;
 var followBearing = 0;
-var followPitch = 0;
+var followPitch = 50;
 
 var config = {
     style: 'mapbox://styles/gladyslsw/cl1j13yws000314n6rt4x7ccl',
@@ -88,7 +88,7 @@ var config = {
             rotateAnimation: true,
             mapAnimation: 'flyTo',
             location: {
-                center: [114.129035, 22.400556],
+                center: [114.12361, 22.41167],
                 zoom: 15,
                 pitch: 75,
                 bearing: 160,
@@ -123,7 +123,7 @@ var config = {
             location: {
                 center: [114.12911, 22.41206],
                 zoom: 13,
-                pitch: 0,
+                pitch: 50,
                 bearing: 0,
             },
             onChapterEnter: [],
@@ -142,7 +142,7 @@ var config = {
         },
         {
             id: 'drive-slide-1',
-            alignment: 'left',
+            alignment: 'right',
             title: 'Scenery',
             image: 'assets/img/loc_3.png',
             description: 'Get the most pleasing view from the highest point of Hong Kong with an excellent hike through a beautiful tropical landscape, on the ridge of Tai Mo Shan',
@@ -152,7 +152,7 @@ var config = {
         },
         {
             id: 'drive-slide-2',
-            alignment: 'left',
+            alignment: 'right',
             title: 'Difficulty',
             description: 'Difficulty: 3/5<br>The beginning and the end can be a bit rough because of the steps that seem endless.',
             location: {},
