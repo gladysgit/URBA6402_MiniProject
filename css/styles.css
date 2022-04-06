@@ -33,7 +33,8 @@
     --bs-gray-700: #495057;
     --bs-gray-800: #343a40;
     --bs-gray-900: #212529;
-    --bs-primary: #64a19d;
+    /* --bs-primary: #64a19d; */
+    --bs-primary: #4CD7D0;
     --bs-secondary: #7464a1;
     --bs-success: #67c29c;
     --bs-info: #1cabc4;
@@ -43,7 +44,8 @@
     --bs-dark: #212529;
     --bs-black: #000;
     --bs-white: #fff;
-    --bs-primary-rgb: 100, 161, 157;
+    /* --bs-primary-rgb: 100, 161, 157; */
+    --bs-primary-rgb: 76, 215, 208;
     --bs-secondary-rgb: 116, 100, 161;
     --bs-success-rgb: 103, 194, 156;
     --bs-info-rgb: 28, 171, 196;
@@ -3034,7 +3036,8 @@ textarea.form-control-lg {
 
 .btn-primary {
     color: #fff;
-    background-color: #64a19d;
+    /* background-color: #64a19d; */
+    background-color: #4CD7D0;
     border-color: #64a19d;
 }
 .btn-primary:hover {
@@ -11563,7 +11566,7 @@ body {
     min-height: 35rem;
     padding: 15rem 0;
     /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg-masthead.jpg"); */
-    background: url("../assets/img/bg-masthead.jpg");
+    background: url("../assets/img/bg-masthead.png");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -11574,7 +11577,7 @@ body {
     font-size: 2.5rem;
     line-height: 2.5rem;
     letter-spacing: 0.8rem;
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+    background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.8));
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     background-clip: text;

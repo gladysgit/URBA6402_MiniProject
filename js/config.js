@@ -132,7 +132,7 @@ var config = {
         {
             id: 'drive-slide-0',
             alignment: 'left',
-            title: '',
+            title: 'Distance & Time',
             description: 'Distance: 9.7km<br>Time: 4hr',
             location: {
                 // location information is from the drive route
@@ -143,7 +143,7 @@ var config = {
         {
             id: 'drive-slide-1',
             alignment: 'left',
-            title: '',
+            title: 'Scenery',
             image: 'assets/img/loc_3.png',
             description: 'Get the most pleasing view from the highest point of Hong Kong with an excellent hike through a beautiful tropical landscape, on the ridge of Tai Mo Shan',
             location: {},
@@ -154,7 +154,7 @@ var config = {
             id: 'drive-slide-2',
             alignment: 'left',
             title: 'Difficulty',
-            description: 'Difficulty: 3/5<br>The beginning and the end can be a bit rough because of the steps that seem endless. Enjoy hiking!',
+            description: 'Difficulty: 3/5<br>The beginning and the end can be a bit rough because of the steps that seem endless.',
             location: {},
             onChapterEnter: [],
             onChapterExit: []
