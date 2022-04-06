@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Fly to a location based on scroll position</title>
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-
+    <meta charset='utf-8' />
+    <title>Mapbox Storytelling</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <!-- Mapbox -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
@@ -16,99 +13,19 @@
 
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-    <!-- <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400" rel="stylesheet" /> -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+
+    <!-- Storytelling -->
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
 
     <!-- Custom -->
     <link href="css/loc2.css" rel="stylesheet">
 </head>
 <body>
     <div id="map"></div>
-    <div id="features">
-        <section id="intro" class="active d-flex align-items-center">
-            <div class="container">
-                <h4 class="text-black">Popular Sceneries</h4>
-                <h5 class="text-black-50">
-                    The best way to understand the locations is through the map. Let's take a <span class="highlight">virtual tour!</span>
-                </h5>
-                <div class="text-center">
-                    <a target="_self" href="loc2.html#firstloc"><i class="fa-solid fa-chevron-down"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <section id="firstloc" class="d-flex align-items-center">
-            <div class="container bg-white shadow px-4">
-                <h4 class="text-black text-uppercase mt-4">#1 High Junk Peak</h4>
-                <h4 class="text-black">釣魚翁</h4>
-                <p class="text-black-50 mb-0">Elevation: 344m</p>
-                <p class="text-black-50">Distance to hiking trail: 235m</p>
-                <figure>
-                    <img class="img-fluid rounded shadow figure-img" src="assets/img/loc_1.png" alt="">
-                    <figcaption class="figure-caption text-end">📷 <a href="https://www.instagram.com/p/CbtS0JbP452/" class="text-decoration-none text-black-50">@lookchard.16487</a></figcaption>
-                </figure>
-                <div class="text-center">
-                    <a target="_self" href="loc2.html#secondloc"><i class="fa-solid fa-chevron-down"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <section id="secondloc" class="d-flex align-items-center">
-            <div class="container bg-white shadow px-4">
-                <h4 class="text-black text-uppercase mt-4">#2 Kai Kung Leng</h4>
-                <h4 class="text-black">雞公嶺</h4>
-                <p class="text-black-50 mb-0">Elevation: 585m</p>
-                <p class="text-black-50">Distance to hiking trail: 4806m</p>
-                <figure>
-                    <img class="img-fluid rounded shadow figure-img" src="assets/img/loc_2.png" alt="">
-                    <figcaption class="figure-caption text-end">📷 <a href="https://www.instagram.com/p/CbFCxFYPa_J/" class="text-decoration-none text-black-50">@snoopyseye</a></figcaption>
-                </figure>
-                <div class="text-center">
-                    <a target="_self" href="loc2.html#thirdloc"><i class="fa-solid fa-chevron-down"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <section id="thirdloc" class="d-flex align-items-center">
-            <div class="container bg-white shadow px-4">
-                <h4 class="text-black text-uppercase mt-4">#3 Tai Mo Shan</h4>
-                <h4 class="text-black">大帽山</h4>
-                <p class="text-black-50 mb-0">Elevation: 957m</p>
-                <p class="text-black-50">Distance to hiking trail: 45m</p>
-                <figure>
-                    <img class="img-fluid rounded shadow figure-img" src="assets/img/loc_3.png" alt="">
-                    <figcaption class="figure-caption text-end">📷 <a href="https://www.instagram.com/p/CbBkrlvhAvW/" class="text-decoration-none text-black-50">@sanjimmy</a></figcaption>
-                </figure>
-                <div class="text-center">
-                    <a target="_self" href="loc2.html#break"><i class="fa-solid fa-chevron-down"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <section id="break" class="active d-flex align-items-center">
-            <div class="container">
-                <h4 class="text-black">Popular Hiking Trails</h4>
-                <h5 class="text-black-50">
-                    So...where are the popular hiking trails? Some sceneries are quite far away from the official hiking trails.
-                </h5>
-                <div class="text-center">
-                    <a target="_self" href="loc2.html#trail"><i class="fa-solid fa-chevron-down"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <section id="trail" class="d-flex align-items-center">
-            <div class="container bg-white shadow px-4">
-                <h4 class="text-black text-uppercase mt-4">Top 3 Hiking Trails</h4>
-                <ol>
-                    <li class="text-black-50 mb-0">Maclehose Trail Section 8 - Lead Mine Pass to Route Twisk<br>麥理浩徑第8段鉛鑛坳至荃錦公路</li>
-                    <li class="text-black-50 mb-0">Maclehose Trail Section 4 - Kei Ling Ha to Tate's Cairn<br>麥理浩徑第4段企嶺下至大老山</li>
-                    <li class="text-black-50 mb-0">High Junk Park Country Trail<br>釣魚翁郊遊徑</li>
-                </ol>
-            </div>
-        </section>
-    </div>
-
-    <script src="js\loc2.js" type="text/javascript"></script>
+    <div id="story"></div>
+    <script src="./js/config.js"></script>
+    <script src="./js/loc2.js"></script>
 </body>
 </html>
