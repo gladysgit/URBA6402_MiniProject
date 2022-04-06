@@ -2,6 +2,7 @@ var config = {
     style: 'mapbox://styles/gladyslsw/cl1j13yws000314n6rt4x7ccl',
     accessToken: 'pk.eyJ1IjoiZ2xhZHlzbHN3IiwiYSI6ImNraGN4Z2h6eTAxMWEycnBhYWc2ZTBibjgifQ.vurF3g-wliG-lYESX4NH1w',
     showMarkers: false,
+    use3dTerrain: true,
     theme: 'light',
     title: '',
     subtitle: '',
@@ -29,6 +30,7 @@ var config = {
             title: '#1 High Junk Peak 釣魚翁',
             image: 'assets/img/loc_1.png',
             description: 'Elevation: 344m<br>Distance to hiking trail: 235m',
+            rotateAnimation: true,
             location: {
                 center: [114.286000, 22.295800],
                 zoom: 15,
@@ -45,6 +47,7 @@ var config = {
             title: '#2 Kai Kung Leng 雞公嶺',
             image: 'assets/img/loc_2.png',
             description: 'Elevation: 585m<br>Distance to hiking trail: 4806m',
+            rotateAnimation: true,
             location: {
                 center: [114.085550, 22.464064],
                 zoom: 15,
@@ -60,6 +63,7 @@ var config = {
             title: '#3 Tai Mo Shan 大帽山',
             image: 'assets/img/loc_3.png',
             description: 'Elevation: 957m<br>Distance to hiking trail: 45m',
+            rotateAnimation: true,
             location: {
                 center: [114.129035, 22.400556],
                 zoom: 15,
