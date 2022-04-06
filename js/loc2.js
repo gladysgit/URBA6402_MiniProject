@@ -306,7 +306,7 @@ window.addEventListener('resize', scroller.resize);
 $(document).ready(function (){
     $.ajax({
       // url:"./data/highwaydrive.geojson",
-      url: "https://gladysgit.github.io/URBA6402_MiniProject/data/toptrail.json",
+      url: "https://gladysgit.github.io/URBA6402_MiniProject/assets/data/toptrail.json",
       dataType: "json",
       success: function (data) {
         console.log('data', data.features[0]);
