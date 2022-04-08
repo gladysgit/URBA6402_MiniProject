@@ -1,18 +1,13 @@
 body {
     margin: 0;
     padding: 0;
-    /* font-family: sans-serif; */
     font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
-
-/* a, a:hover, a:visited {
-    color: #0071bc;
-} */
 
 #map {
     bottom: 0;
     left: 0;
-    height: 90vh;
+    height: 95vh;
     width:100vw;
     position: fixed;
     z-index: -5;
@@ -101,11 +96,6 @@ body {
 
 .step img {
     width: 100%;
-}
-
-.highlight {
-  background: linear-gradient(transparent 60%, #F8EA8C 60%);
-  font-weight: bold;
 }
 
 @media (max-width: 750px) {

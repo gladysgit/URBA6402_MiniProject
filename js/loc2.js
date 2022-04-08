@@ -88,6 +88,18 @@ config.chapters.forEach((record, idx) => {
         chapter.appendChild(image);
     }
 
+    if (record.link) {
+        var link = document.createElement('a');
+        if (record.linktext) {
+            link.innerHTML = record.linktext;
+        } else {
+            link.innerHTML = record.link;
+        }
+        link.classList.add('text-decoration-none')
+        link.href = record.link
+        chapter.appendChild(link);
+    }
+
     container.setAttribute('id', record.id);
     container.classList.add('step');
     if (idx === 0) {
