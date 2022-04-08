@@ -69,13 +69,15 @@ config.chapters.forEach((record, idx) => {
     var chapter = document.createElement('div');
 
     if (record.title) {
-        var title = document.createElement('h3');
+        var title = document.createElement('h4');
+        // title.classList.add('fw-bold')
         title.innerText = record.title;
         chapter.appendChild(title);
     }
 
     if (record.description) {
-        var story = document.createElement('p');
+        var story = document.createElement('h5');
+        story.classList.add('text-black-50')
         story.innerHTML = record.description;
         chapter.appendChild(story);
     }
@@ -183,6 +185,15 @@ function handleStepProgress(response) {
     }
 }
 
+function rotateCamera(timestamp) {
+    const rotateNumber = map.getBearing();
+    map.rotateTo(rotateNumber - 180, {
+        duration: 20000, easing: function (t) {
+            return t;
+        }
+    });
+}
+
 map.on("load", function() {
     if (config.use3dTerrain) {
         map.addSource('mapbox-dem', {
@@ -269,12 +280,7 @@ map.on("load", function() {
         }
         if (chapter.rotateAnimation) {
             map.once('moveend', function() {
-                const rotateNumber = map.getBearing();
-                map.rotateTo(rotateNumber + 180, {
-                    duration: 20000, easing: function (t) {
-                        return t;
-                    }
-                });
+                rotateCamera(0);
             });
         }
     })
@@ -295,7 +301,6 @@ window.addEventListener('resize', scroller.resize);
 
 $(document).ready(function (){
     $.ajax({
-      // url:"./data/highwaydrive.geojson",
       url: "https://gladysgit.github.io/URBA6402_MiniProject/assets/data/toptrail.json",
       dataType: "json",
       success: function (data) {

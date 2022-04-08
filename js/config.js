@@ -59,6 +59,7 @@ var config = {
                 pitch: 75,
                 bearing: 142.1,
                 speed: 0.5,
+                curve: 3,
             },
             onChapterEnter: [],
             onChapterExit: []
@@ -108,7 +109,7 @@ var config = {
             alignment: 'left',
             title: 'Popular Hiking Trails',
             image: '',
-            description: 'So...where are the popular hiking trails? Some sceneries are quite far away from the official hiking trails.',
+            description: 'So...where are the popular hiking trails? Some sceneries are quite far away from the hiking trails.',
             mapAnimation: 'flyTo',
             location: {
                 center: [114.090, 22.365],
@@ -139,10 +140,8 @@ var config = {
             id: 'drive-slide-0',
             alignment: 'left',
             title: 'Distance & Time',
-            description: 'Distance: 9.7km<br>Time: 4hr',
-            location: {
-                // location information is from the drive route
-            },
+            description: 'It normally requires <span class="highlight">4 hours</span> to complete the whole <span class="highlight">9.7km</span> trail.',
+            location: {},
             onChapterEnter: [],
             onChapterExit: []
         },
@@ -151,7 +150,7 @@ var config = {
             alignment: 'right',
             title: 'Scenery',
             image: 'assets/img/loc_3.png',
-            description: 'Get the most pleasing view from the highest point of Hong Kong with an excellent hike through a beautiful tropical landscape, on the ridge of Tai Mo Shan',
+            description: 'In the middle of the trip, you will be standing on the ridge of Tai Mo Shan and seeing the most pleasing view from the highest point of Hong Kong.',
             location: {},
             onChapterEnter: [],
             onChapterExit: []
@@ -160,7 +159,7 @@ var config = {
             id: 'drive-slide-2',
             alignment: 'right',
             title: 'Difficulty',
-            description: 'Difficulty: 3/5<br>The beginning and the end can be a bit rough because of the steps that seem endless.',
+            description: 'Difficulty: 3/5<br>It is not a difficult trail even though the endless steep steps at the beginning and towards the end might be a bit tough.',
             location: {},
             onChapterEnter: [],
             onChapterExit: []
@@ -170,7 +169,7 @@ var config = {
             alignment: 'center',
             title: 'Enjoy!',
             image: '',
-            description: 'Will you try to go hiking afterwards?',
+            description: 'Would you feel like giving it a try after this semester?',
             mapAnimation: 'flyTo',
             location: {
                 center: [114.12911, 22.41206],
