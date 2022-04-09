@@ -97,7 +97,7 @@ var config = {
             location: {
                 center: [114.12361, 22.41167],
                 zoom: 15,
-                pitch: 75,
+                pitch: 70,
                 bearing: 160,
                 speed: 0.5,
             },
@@ -159,7 +159,7 @@ var config = {
             id: 'drive-slide-2',
             alignment: 'right',
             title: 'Difficulty',
-            description: 'Difficulty: 3/5<br>It is not a difficult trail even though the endless steep steps at the beginning and towards the end might be a bit tough.',
+            description: 'Difficulty: 3/5<br>It is not a difficult trail even though there are the endless steep steps at the beginning and towards the end might be a bit tough.',
             location: {},
             onChapterEnter: [],
             onChapterExit: []
