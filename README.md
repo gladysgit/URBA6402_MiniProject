@@ -3,6 +3,8 @@ Demonstration: https://gladysgit.github.io/hkhiking/
 
 Presentation: https://youtu.be/16cZ7-lRaxU
 
+Codes: https://github.com/gladysgit/hkhiking/
+
 ## Data Acqusition - Web Scraping from Instagram
 1. The project data is the posts with #hkhiking collected from Instagram in March 2022. As Facebook official Graph API does not provide the location inforamtion, the thrid party API [instagrapi]( https://github.com/adw0rd/instagrapi) was used for web scraping.
 2. The raw data was about 7 thousands of posts, mainly including users, captions, locations. The data was stored in sqlite database for further processing.
