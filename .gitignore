@@ -1,8 +1,7 @@
+# Mac OS metadata
 .DS_Store
-assets/.DS_Store
-assets/data/.DS_Store
-assets/img/.DS_Store
-assets/img/bak/.DS_Store
+Thumbs.db
+
 scss/
 URBA6402_MiniProject.zip
 URBA6402_MiniProject_Presentation.mov
