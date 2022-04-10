@@ -11569,7 +11569,7 @@ body {
     background: url("../assets/img/bg-masthead.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-size: cover;
 }
 .masthead h1, .masthead .h1 {
@@ -11597,6 +11597,7 @@ body {
         z-index: 1;
         height: 100vh;
         padding: 0;
+        background-attachment: fixed;
     }
     .masthead h1, .masthead .h1 {
         font-size: 6.5rem;
@@ -11698,7 +11699,7 @@ body {
     background-attachment: scroll;
     background-size: cover;
     width: 100%;
-    height: 75vh;
+    min-height: 75vh;
     /* mobile viewport bug fix */
     min-height: -webkit-fill-available;
 }

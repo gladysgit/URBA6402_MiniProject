@@ -78,9 +78,7 @@ body {
 }
 
 .step {
-    /* padding-top: 50vh; */
     padding-bottom: 50vh;
-    /* margin-bottom: 10vh; */
     opacity: 0.25;
 }
 
